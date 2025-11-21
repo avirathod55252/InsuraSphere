@@ -1,11 +1,7 @@
-<<<<<<< HEAD
-// Use deployed backend URL
+// 🔥 Use full backend API URL
 const API = "https://insurasphere.onrender.com/api";
-=======
-// 🔥 Use full backend URL for deployed frontend
-const API = "https://insurasphere.onrender.com";
->>>>>>> 553ee3c177340b6472661fcb37f05cec79c5867d
 
+// Helper POST function
 async function post(path, body, token) {
   const res = await fetch(API + path, {
     method: "POST",
@@ -15,10 +11,17 @@ async function post(path, body, token) {
     },
     body: JSON.stringify(body),
   });
+
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error("Server Error: " + text);
+  }
+
   return res.json();
 }
 
 export default {
+  // AUTH
   signup: (data) => post("/auth/signup", data),
 
   signin: (data) => post("/auth/signin", data),
@@ -31,23 +34,45 @@ export default {
     return res.json();
   },
 
-  getPolicies: () => fetch(`${API}/policies`).then((r) => r.json()),
+  // POLICIES
+  getPolicies: () =>
+    fetch(`${API}/policies`).then(async (r) => {
+      if (!r.ok) {
+        const text = await r.text();
+        throw new Error(text);
+      }
+      return r.json();
+    }),
 
   createPolicy: (data, token) => post("/policies", data, token),
 
+  // APPLICATIONS
   applyPolicy: (data, token) => post("/applications", data, token),
 
   getApplications: (token) =>
     fetch(`${API}/applications`, {
       headers: { Authorization: "Bearer " + token },
-    }).then((r) => r.json()),
+    }).then(async (r) => {
+      if (!r.ok) {
+        const text = await r.text();
+        throw new Error(text);
+      }
+      return r.json();
+    }),
 
   decideApplication: (id, decision, token) =>
     post(`/applications/${id}/decision`, { decision }, token),
 
+  // FILE UPLOAD
   uploadFile: (formData) =>
     fetch(`${API}/upload`, {
       method: "POST",
       body: formData,
-    }).then((r) => r.json()),
+    }).then(async (r) => {
+      if (!r.ok) {
+        const text = await r.text();
+        throw new Error(text);
+      }
+      return r.json();
+    }),
 };
