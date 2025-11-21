@@ -1,4 +1,4 @@
-// 🔥 Use full backend URL for deployed frontend
+// Use deployed backend URL
 const API = "https://insurasphere.onrender.com/api";
 
 async function post(path, body, token) {
