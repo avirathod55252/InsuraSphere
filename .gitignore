@@ -1,0 +1,75 @@
+# ===========================
+# Node / Express Backend
+# ===========================
+backend/node_modules/
+backend/.env
+backend/.env.local
+backend/.env.*.local
+
+# Logs
+backend/npm-debug.log*
+backend/yarn-debug.log*
+backend/yarn-error.log*
+backend/*.log
+
+# Runtime data
+backend/pids
+backend/*.pid
+backend/*.seed
+backend/*.pid.lock
+
+# Uploads
+backend/uploads/
+backend/temp/
+
+# Build output
+backend/dist/
+backend/build/
+
+
+# ===========================
+# React Frontend
+# ===========================
+frontend/node_modules/
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+
+# Production build
+frontend/build/
+frontend/dist/
+
+# Logs
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+# Coverage
+frontend/coverage/
+frontend/*.log
+
+# Temporary files
+frontend/*.tmp
+
+
+# ===========================
+# Common / Root Level
+# ===========================
+/node_modules
+/.env
+/.env.local
+/.env.*.local
+
+# OS generated
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Misc
+*.tmp
+*.cache

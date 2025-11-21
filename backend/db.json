@@ -1,0 +1,212 @@
+{
+  "users": [
+    {
+      "id": "u_admin",
+      "name": "Admin",
+      "email": "admin@insura.com",
+      "passwordHash": "$2b$10$8Rudw4OeiRF2NwfJm6KZJufNACS330lgrAQvTPwpbC4Jmba8dp3lq",
+      "role": "admin"
+    },
+    {
+      "id": "mP88Uyv2",
+      "name": "",
+      "email": "avinashrathod55252@gmail.com",
+      "passwordHash": "$2b$10$Ej.Ye9Ym1/.Yben1PAPlP.eyWc5C4NnBjjtkzmAxpsDX.xUx9dIFS",
+      "role": "admin"
+    },
+    {
+      "id": "uMEoV4zr",
+      "name": "avi",
+      "email": "avr@gmail.com",
+      "passwordHash": "$2b$10$WJE1G.RtZXHOCJo8FxXAGeA/hY8Gozfy/wg73BZze2onc/LniJMEu",
+      "role": "customer"
+    },
+    {
+      "id": "kcsrTnmx",
+      "name": "",
+      "email": "avi",
+      "passwordHash": "$2b$10$pbl/qJ0/mC1ahiPYB8rRuuLfMCRUXsnDhXbUlybHZz8k0hd87OvkK",
+      "role": "admin"
+    },
+    {
+      "id": "FoILrkIU",
+      "name": "avinash",
+      "email": "admin@insura.com ",
+      "passwordHash": "$2b$10$zQPrzajNGObTzvohbaKApOl53N6/UI0k1t5khGojYJHw5Pdtv2eD6",
+      "role": "admin"
+    },
+    {
+      "id": "ExV6tsos",
+      "name": "avinash",
+      "email": "avinashrar@gmail.com",
+      "passwordHash": "$2b$10$FOll7eOBO4VQ3S/ZE1cJzeTx5dr9RwLAbvVTs0MDIiixvrBgJl68.",
+      "role": "customer"
+    },
+    {
+      "id": "65x8Qn8z",
+      "name": "pk",
+      "email": "admin@gmail.com",
+      "passwordHash": "$2b$10$7htQaF2T8Q39M8ceDlvyqO9FMe8XevrD78HPYOmB036QAbh4FpqLG",
+      "role": "admin"
+    },
+    {
+      "id": "hKrY5sjm",
+      "name": "avinash rathod",
+      "email": "avi@gmail.com",
+      "passwordHash": "$2b$10$QjtyGm0ZKAiVsoE1dbUIdOQ5.twebfsZFYynuixbr.N2S5Ju/rDTu",
+      "role": "customer"
+    },
+    {
+      "id": "Kavryj36",
+      "name": "AVINASH VISHNU RATHOD",
+      "email": "avi1@gmail.com",
+      "passwordHash": "$2b$10$bVhMpPD4/IoZZCPbBTnxWeexRiT7v70GUMhLWLs.HWWaCbYaWIDu2",
+      "role": "admin"
+    },
+    {
+      "id": "sh2rA6qg",
+      "name": "Prashant Rathod ",
+      "email": "avinash@gmail.com",
+      "passwordHash": "$2b$10$m/LG4fa7ePxyBLagHW6lte4rHvWI2I.G33eZ6HucomQQKfURXRNaq",
+      "role": "admin"
+    }
+  ],
+  "policies": [
+    {
+      "id": "p_life_1",
+      "type": "Life",
+      "title": "Term Life Plan",
+      "premium": 12000,
+      "details": "Coverage for nominated beneficiaries on death."
+    },
+    {
+      "id": "p_health_1",
+      "type": "Health",
+      "title": "Comprehensive Health",
+      "premium": 15000,
+      "details": "Covers hospitalization, surgeries, and medicines."
+    },
+    {
+      "id": "p_auto_1",
+      "type": "Auto",
+      "title": "Car Protect",
+      "premium": 8000,
+      "details": "Covers damage, theft, and third-party liability."
+    },
+    {
+      "id": "p_home_1",
+      "type": "Home",
+      "title": "Home Safe",
+      "premium": 6000,
+      "details": "Covers fire, theft and certain natural disasters."
+    },
+    {
+      "id": "p_0FUUfV",
+      "type": "Health",
+      "title": "avi",
+      "premium": 33,
+      "details": "dd"
+    },
+    {
+      "id": "p_5uPaaI",
+      "type": "Home",
+      "title": "avinash",
+      "premium": 6666,
+      "details": "avinash rathod \n"
+    },
+    {
+      "id": "p_c1m48v",
+      "type": "Life",
+      "title": "life ",
+      "premium": 0,
+      "details": "Create New Policy\nPolicy Type\n\nLife\nPremium\n0\nPolicy Title\nEnter title\nDetails\n"
+    },
+    {
+      "id": "p_sfMgDi",
+      "type": "Auto",
+      "title": "AUTO INSURANCE ",
+      "premium": 1,
+      "details": "AUTO INSURANCE "
+    },
+    {
+      "id": "p_tQxqqv",
+      "type": "Cyber Security Insurance",
+      "title": "Cyber Security Insurance ",
+      "premium": 5,
+      "details": "In IT Security and IT Copany...........\n"
+    },
+    {
+      "id": "p_4KDgUs",
+      "type": "Home",
+      "title": "Home ",
+      "premium": 0,
+      "details": ""
+    }
+  ],
+  "applications": [
+    {
+      "id": "a_m_T2Tc",
+      "userId": "uMEoV4zr",
+      "policyId": "p_0FUUfV",
+      "status": "rejected",
+      "createdAt": 1762181527468,
+      "decisionAt": 1762241609806
+    },
+    {
+      "id": "a_7_tvdX",
+      "userId": "ExV6tsos",
+      "policyId": "p_life_1",
+      "status": "rejected",
+      "createdAt": 1762238368187,
+      "decisionAt": 1762241611080
+    },
+    {
+      "id": "a_k03V5O",
+      "userId": "hKrY5sjm",
+      "policyId": "p_0FUUfV",
+      "status": "approved",
+      "createdAt": 1763275398299,
+      "decisionAt": 1763275808609
+    },
+    {
+      "id": "a_2EWn_Z",
+      "userId": "hKrY5sjm",
+      "policyId": "p_c1m48v",
+      "status": "approved",
+      "createdAt": 1763275611879,
+      "decisionAt": 1763275810492
+    },
+    {
+      "id": "a_XS9M-k",
+      "userId": "hKrY5sjm",
+      "policyId": "p_0FUUfV",
+      "status": "approved",
+      "createdAt": 1763276815294,
+      "decisionAt": 1763453242625
+    },
+    {
+      "id": "a_TFy7-S",
+      "userId": "hKrY5sjm",
+      "policyId": "p_sfMgDi",
+      "status": "approved",
+      "createdAt": 1763282595452,
+      "decisionAt": 1763452909223
+    },
+    {
+      "id": "a_nk4pg4",
+      "userId": "hKrY5sjm",
+      "policyId": "p_life_1",
+      "status": "approved",
+      "createdAt": 1763452700977,
+      "decisionAt": 1763452894358
+    },
+    {
+      "id": "a_PAhEPy",
+      "userId": "hKrY5sjm",
+      "policyId": "p_tQxqqv",
+      "status": "rejected",
+      "createdAt": 1763452857732,
+      "decisionAt": 1763453236296
+    }
+  ]
+}
