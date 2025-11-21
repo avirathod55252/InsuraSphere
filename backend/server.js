@@ -8,7 +8,7 @@ import bcrypt from "bcrypt";
 import fs from "fs";
 import { fileURLToPath } from "url";
 import multer from "multer";
-import jwt from "jsonwebtoken"; // 🔥 FIXED: You forgot this import
+import jwt from "jsonwebtoken";
 
 // Routes
 import lifeInsuranceRoutes from "./routes/lifeInsurance.js";
@@ -22,19 +22,20 @@ const __dirname = path.dirname(__filename);
 const app = express();
 
 // -----------------------------------------------------
-// ✅ FIXED: CORS — prevents “Failed to fetch”
+// ✅ CORS FIXED FOR DEPLOYED FRONTEND
 // -----------------------------------------------------
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://insurasphere.vercel.app"],
+    origin: [
+      "http://localhost:5173", // local frontend
+      "https://insura-sphere.vercel.app", // deployed frontend
+    ],
     methods: "GET, POST, PUT, DELETE, OPTIONS",
     allowedHeaders: "Content-Type, Authorization",
   })
 );
 
-// Allow browsers to preflight
 app.options("*", cors());
-
 app.use(express.json());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
@@ -42,7 +43,7 @@ const PORT = process.env.PORT || 5000;
 const JWT_SECRET = process.env.JWT_SECRET || "devsecret123";
 
 // ----------------------------------
-// DATABASE (lowdb)
+// DATABASE (LowDB)
 // ----------------------------------
 const file = path.join(__dirname, "db.json");
 const adapter = new JSONFile(file);
@@ -50,6 +51,7 @@ const db = new Low(adapter);
 
 async function initDB() {
   await db.read();
+
   db.data ||= {
     users: [],
     policies: [],
@@ -57,7 +59,7 @@ async function initDB() {
     Insurance: [],
   };
 
-  // Seed admin only once
+  // Seed admin account (only once)
   const admin = db.data.users.find((u) => u.email === "admin@insura.com");
   if (!admin) {
     const hash = await bcrypt.hash("admin123", 10);
@@ -95,9 +97,6 @@ app.get("/", (req, res) =>
   res.send("InsuraSphere backend running successfully")
 );
 
-// ----------------------------------
-// SERVER
-// ----------------------------------
 app.listen(PORT, () =>
-  console.log(`✅ Backend listening on http://localhost:${PORT}`)
+  console.log(`Backend running on http://localhost:${PORT}`)
 );
