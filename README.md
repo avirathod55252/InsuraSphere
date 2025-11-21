@@ -1,28 +1,50 @@
-# InsuraSphere (insura-sphere)
+# 🛡️ InsuraSphere – Insurance Management Platform
 
-Full-stack demo project (React + Create React App frontend, Node/Express backend)
+InsuraSphere is a full-stack insurance management platform that allows users to explore insurance products, apply for policies, track application status, and manage insurance workflows. Admins can review applications, approve/reject requests, and manage policy data.
 
-- Focus: Life, Health, Auto, Home insurance types
-- Auth: signup/signin (JWT via lowdb)
-- Customer and Admin dashboards
-- File upload using multer
+Frontend uses **React.js + Tailwind CSS**, and backend uses **Node.js + Express + LowDB** for lightweight storage.  
+The project is fully deployed using **Vercel (Frontend)** and **Render (Backend)**.
 
-## Quick start (local, requires Node.js)
+---
 
-1. Backend
+## 🚀 Live Demo Links
 
-   ```bash
-   cd backend
-   npm install
-   # create .env if you want: JWT_SECRET=your_secret
-   npm run dev    # or npm start
-   ```
+🔗 **Frontend (Vercel):** https://insura-sphere.vercel.app/ 
+---
 
-2. Frontend
-   ```bash
-   cd frontend
-   npm install
-   npm start
-   ```
+## 📌 Features
 
-Default seeded admin: admin@insura.com / admin123
+### 👤 User (Customer) Features
+- Create account & login (JWT authentication)
+- Browse insurance products:
+  - Life Insurance
+  - Health Insurance
+  - Auto Insurance
+  - Travel Insurance
+- Apply for insurance
+- Upload required documents
+- View application status
+- Profile & dashboard
+
+### 🛠️ Admin Features
+- Admin login
+- Create and manage policy products
+- View all applications
+- Approve / Reject user requests
+- Dashboard metrics
+
+### ⚙️ Technical Features
+- Full REST API using Express.js
+- CORS enabled for production deployment
+- File uploads using Multer
+- Password hashing with bcrypt
+- JWT authentication & protected routes
+- LowDB JSON database for simplified development
+- Clean React components with reusable UI design
+- Centralized API service file (`api.js`)
+- Deployed on cloud hosting (Render + Vercel)
+
+---
+
+## 📂 Project Structure
+
