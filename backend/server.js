@@ -8,10 +8,10 @@ import bcrypt from "bcrypt";
 import fs from "fs";
 import { fileURLToPath } from "url";
 import multer from "multer";
+import jwt from "jsonwebtoken"; // 🔥 FIXED: You forgot this import
 
-// 🔥 FIXED: Import life insurance routes
+// Routes
 import lifeInsuranceRoutes from "./routes/lifeInsurance.js";
-
 import authRoutesFactory from "./routes/auth.js";
 import policiesRoutesFactory from "./routes/policies.js";
 import applicationsRoutesFactory from "./routes/applications.js";
@@ -20,7 +20,21 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-app.use(cors());
+
+// -----------------------------------------------------
+// ✅ FIXED: CORS — prevents “Failed to fetch”
+// -----------------------------------------------------
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "https://insurasphere.vercel.app"],
+    methods: "GET, POST, PUT, DELETE, OPTIONS",
+    allowedHeaders: "Content-Type, Authorization",
+  })
+);
+
+// Allow browsers to preflight
+app.options("*", cors());
+
 app.use(express.json());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
@@ -40,10 +54,10 @@ async function initDB() {
     users: [],
     policies: [],
     applications: [],
-    Insurance: [], // For your life insurance module
+    Insurance: [],
   };
 
-  // Seed admin
+  // Seed admin only once
   const admin = db.data.users.find((u) => u.email === "admin@insura.com");
   if (!admin) {
     const hash = await bcrypt.hash("admin123", 10);
@@ -63,26 +77,23 @@ await initDB();
 // ----------------------------------
 // ROUTES
 // ----------------------------------
-
-// 🔥 FIXED: Life Insurance Route
 app.use("/api/life-insurance", lifeInsuranceRoutes({ db }));
-
 app.use("/api/auth", authRoutesFactory({ db, bcrypt, jwtSecret: JWT_SECRET }));
-
 app.use("/api/policies", policiesRoutesFactory({ db, jwtSecret: JWT_SECRET }));
-
 app.use(
   "/api/applications",
   applicationsRoutesFactory({ db, jwtSecret: JWT_SECRET })
 );
 
-// General file upload
+// File upload
 const upload = multer({ dest: path.join(__dirname, "uploads/") });
 app.post("/api/upload", upload.single("file"), (req, res) => {
   res.json({ message: "File uploaded", file: req.file });
 });
 
-app.get("/", (req, res) => res.send("InsuraSphere backend running"));
+app.get("/", (req, res) =>
+  res.send("InsuraSphere backend running successfully")
+);
 
 // ----------------------------------
 // SERVER
