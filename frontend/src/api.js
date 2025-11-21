@@ -1,4 +1,5 @@
-const API = "/api";
+// 🔥 Use full backend URL for deployed frontend
+const API = "https://insurasphere.onrender.com/api";
 
 async function post(path, body, token) {
   const res = await fetch(API + path, {
@@ -14,24 +15,25 @@ async function post(path, body, token) {
 
 export default {
   signup: (data) => post("/auth/signup", data),
+
   signin: (data) => post("/auth/signin", data),
 
   me: async (token) => {
-    const res = await fetch("/api/auth/me", {
+    const res = await fetch(`${API}/auth/me`, {
       headers: { Authorization: "Bearer " + token },
     });
     if (!res.ok) throw new Error("not auth");
     return res.json();
   },
 
-  getPolicies: () => fetch("/api/policies").then((r) => r.json()),
+  getPolicies: () => fetch(`${API}/policies`).then((r) => r.json()),
 
   createPolicy: (data, token) => post("/policies", data, token),
 
   applyPolicy: (data, token) => post("/applications", data, token),
 
   getApplications: (token) =>
-    fetch("/api/applications", {
+    fetch(`${API}/applications`, {
       headers: { Authorization: "Bearer " + token },
     }).then((r) => r.json()),
 
@@ -39,7 +41,8 @@ export default {
     post(`/applications/${id}/decision`, { decision }, token),
 
   uploadFile: (formData) =>
-    fetch("/api/upload", { method: "POST", body: formData }).then((r) =>
-      r.json()
-    ),
+    fetch(`${API}/upload`, {
+      method: "POST",
+      body: formData,
+    }).then((r) => r.json()),
 };
