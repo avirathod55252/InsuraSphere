@@ -1,5 +1,5 @@
 // 🔥 Use full backend URL for deployed frontend
-const API = "https://insurasphere.onrender.com/api";
+const API = "https://insurasphere.onrender.com";
 
 async function post(path, body, token) {
   const res = await fetch(API + path, {
